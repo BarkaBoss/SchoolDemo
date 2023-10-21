@@ -1,6 +1,7 @@
 package ng.com.nokt.school.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "student")
@@ -9,11 +10,22 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
+
+    @Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "dateOfBirth")
     private String dateOfBirth;
+
+    @Column(name = "stateOfOrigin")
     private String stateOfOrigin;
+
+    @Column(name = "nationality")
     private String nationality;
 
     public Student() {
