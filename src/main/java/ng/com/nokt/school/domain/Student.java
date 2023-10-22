@@ -3,6 +3,8 @@ package ng.com.nokt.school.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 
+import java.util.List;
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -88,12 +90,16 @@ public class Student {
         return id;
     }
 
-    public Student(String firstName, String lastName, String email, String dateOfBirth, String stateOfOrigin, String nationality) {
+    @OneToMany
+    private List<Courses> courses;
+
+    public Student(String firstName, String lastName, String email, String dateOfBirth, String stateOfOrigin, String nationality, List<Courses> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.stateOfOrigin = stateOfOrigin;
         this.nationality = nationality;
+        this.courses = courses;
     }
 }
