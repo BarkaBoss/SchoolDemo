@@ -13,13 +13,12 @@ public class Courses {
 
     private String courseCode;
 
-    private String creditUnit;
+    private int creditUnit;
 
     public Courses() {
     }
 
-    public Courses(String courseTitle, String courseCode, String creditUnit) {
-        this.id = id;
+    public Courses(String courseTitle, String courseCode, int creditUnit) {
         this.courseTitle = courseTitle;
         this.courseCode = courseCode;
         this.creditUnit = creditUnit;
@@ -49,11 +48,11 @@ public class Courses {
         this.courseCode = courseCode;
     }
 
-    public String getCreditUnit() {
+    public int getCreditUnit() {
         return creditUnit;
     }
 
-    public void setCreditUnit(String creditUnit) {
+    public void setCreditUnit(int creditUnit) {
         this.creditUnit = creditUnit;
     }
 }

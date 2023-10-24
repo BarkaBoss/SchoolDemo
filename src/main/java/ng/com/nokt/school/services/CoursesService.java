@@ -5,7 +5,7 @@ import ng.com.nokt.school.domain.Courses;
 import java.util.List;
 
 public interface CoursesService {
-    List<Courses> getAllStudents();
+    List<Courses> getAllCourses();
     Courses saveCourse(Courses course);
     Courses getCourseById(long id);
 

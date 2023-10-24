@@ -13,18 +13,20 @@ public class CoursesImpl implements CoursesService{
 
     @Autowired
     CoursesRepository coursesRepository;
+
     @Override
-    public List<Courses> getAllStudents() {
+    public List<Courses> getAllCourses() {
         return coursesRepository.findAll();
     }
 
     @Override
     public Courses saveCourse(Courses course) {
-        Optional<Courses> optional = Optional.ofNullable(coursesRepository.findCoursesByCourseCode());
+        Optional<Courses> optional = Optional.ofNullable(coursesRepository.findCoursesByCourseCode(course.getCourseCode()));
 
         if(optional.isPresent()){
             throw new RuntimeException("Course is Already Present");
         }else {
+            System.out.println(course.getCourseCode());
             coursesRepository.save(course);
         }
 
