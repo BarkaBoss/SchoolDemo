@@ -48,6 +48,17 @@ public class CoursesImpl implements CoursesService{
     }
 
     @Override
+    public Courses updateCourse(Courses courses, long id) {
+        Optional<Courses> optional = coursesRepository.findById(courses.getId());
+        if (optional.isPresent()){
+            coursesRepository.save(courses);
+        }else {
+            new RuntimeException("Course Does not Exist");
+        }
+        return courses;
+    }
+
+    @Override
     public void deleteCourseById(long id) {
         coursesRepository.deleteById(id);
     }
