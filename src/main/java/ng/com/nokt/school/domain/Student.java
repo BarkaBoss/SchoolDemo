@@ -93,6 +93,14 @@ public class Student {
     @OneToMany
     private List<Courses> courses;
 
+    public List<Courses> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Courses> courses) {
+        this.courses = courses;
+    }
+
     public Student(String firstName, String lastName, String email, String dateOfBirth, String stateOfOrigin, String nationality, List<Courses> courses) {
         this.firstName = firstName;
         this.lastName = lastName;

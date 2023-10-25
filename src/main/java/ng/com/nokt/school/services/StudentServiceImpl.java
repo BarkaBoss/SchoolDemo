@@ -40,6 +40,26 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    public Student updateStudent(Student student) {
+        Optional<Student> optional = studentRepository.findById(student.getId());
+
+        if (optional.isPresent()){
+            Student updateStudent = new Student();
+            updateStudent.setId(student.getId());
+            updateStudent.setDateOfBirth(student.getDateOfBirth());
+            updateStudent.setEmail(student.getEmail());
+            updateStudent.setFirstName(student.getFirstName());
+            updateStudent.setLastName(student.getLastName());
+            updateStudent.setStateOfOrigin(student.getStateOfOrigin());
+
+            studentRepository.save(updateStudent);
+            return updateStudent;
+        }else {
+            throw new RuntimeException("Student Does not Exist ==> " + student.getId());
+        }
+    }
+
+    @Override
     public void deleteStudentById(long id) {
         studentRepository.deleteById(id);
     }
