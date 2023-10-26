@@ -25,16 +25,22 @@ public class StudentAPI {
         return ResponseEntity.ok().body(studentService.getAllStudents());
     }
 
+    @RequestMapping("/students/{id}")
+    @GetMapping
+    public ResponseEntity<Student> getStudentById(@PathVariable long id){
+        return ResponseEntity.ok().body(studentService.getStudentById(id));
+    }
+
     @PostMapping("/students")
     public ResponseEntity<Student> createDrone(@RequestBody Student student){
         return ResponseEntity.ok().body(studentService.saveStudent(student));
     }
 
-    @PostMapping("/students/{id}/course{id}")
+    @PostMapping("/students/{studentId}/course/{courseId}")
     public ResponseEntity<Student> addCourseToStudent(@PathVariable long studentId, @PathVariable long courseId){
 
         Courses courses = coursesService.getCourseById(courseId);
-        Student student = studentService.getStudentById(courseId);
+        Student student = studentService.getStudentById(studentId);
 
         List<Courses> coursesList = student.getCourses();
         int totalUnits = 0;

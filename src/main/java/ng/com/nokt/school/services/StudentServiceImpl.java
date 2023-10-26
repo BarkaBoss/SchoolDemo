@@ -1,5 +1,6 @@
 package ng.com.nokt.school.services;
 
+import ng.com.nokt.school.domain.Courses;
 import ng.com.nokt.school.domain.Student;
 import ng.com.nokt.school.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class StudentServiceImpl implements StudentService{
             updateStudent.setFirstName(student.getFirstName());
             updateStudent.setLastName(student.getLastName());
             updateStudent.setStateOfOrigin(student.getStateOfOrigin());
+            updateStudent.setNationality(student.getNationality());
+            updateStudent.setCourses(student.getCourses());
 
             studentRepository.save(updateStudent);
             return updateStudent;
