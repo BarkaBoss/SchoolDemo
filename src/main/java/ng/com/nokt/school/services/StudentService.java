@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface StudentService {
     List<Student> getAllStudents();
-    List<Student> getAllStudentsByState();
     Student saveStudent (Student student);
     Student getStudentById(long id);
     Student updateStudent(Student student);

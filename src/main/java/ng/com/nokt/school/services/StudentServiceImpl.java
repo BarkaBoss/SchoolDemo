@@ -21,11 +21,6 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<Student> getAllStudentsByState() {
-        return studentRepository.getStudentsByStateOfOrigin();
-    }
-
-    @Override
     public Student saveStudent(Student student) {
         studentRepository.save(student);
         return student;
