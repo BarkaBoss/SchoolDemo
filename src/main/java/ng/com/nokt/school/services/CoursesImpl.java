@@ -29,7 +29,6 @@ public class CoursesImpl implements CoursesService{
             System.out.println(course.getCourseCode());
             coursesRepository.save(course);
         }
-
         return course;
     }
 
